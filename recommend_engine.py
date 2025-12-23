@@ -4,14 +4,13 @@ import logging
 import numpy as np
 from typing import List, Dict, Any, Tuple
 import pickle
-from sentence_transformers import SentenceTransformer
+from sentence_transformers mport SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import time
-import torch
 from langchain_community.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
-from langchain.schema import Document
+from langchain_core.documents import Document
 import joblib
 import regex as re
 
@@ -37,8 +36,7 @@ class SHLRecommendationEngine:
         # Initialize embedding model
         self.embedding_model = HuggingFaceEmbeddings(
             model_name=model_name,
-            model_kwargs={'device': 'cuda' if torch.cuda.is_available() else 'cpu'},
-            encode_kwargs={'normalize_embeddings': True}
+            encode_kwargs={"normalize_embeddings": True}
         )
         
         # Load assessments
@@ -67,7 +65,8 @@ class SHLRecommendationEngine:
                 logger.info("Loading existing FAISS index...")
                 self.vectorstore = FAISS.load_local(
                     self.faiss_index_path,
-                    self.embedding_model
+                    self.embedding_model,
+                    allow_dangerous_deserialization=True
                 )
                 logger.info("FAISS index loaded successfully")
             else:
