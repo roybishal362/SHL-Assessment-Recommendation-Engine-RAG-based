@@ -4,7 +4,6 @@ import logging
 import numpy as np
 from typing import List, Dict, Any, Tuple
 import pickle
-from sentence_transformers mport SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import time
 from langchain_community.vectorstores import FAISS
