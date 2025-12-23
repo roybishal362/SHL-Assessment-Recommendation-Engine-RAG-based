@@ -9,7 +9,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import time
 import torch
 from langchain_community.vectorstores import FAISS
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.schema import Document
 import joblib
