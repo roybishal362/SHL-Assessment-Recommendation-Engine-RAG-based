@@ -15,5 +15,6 @@ trafilatura
 itsdangerous
 langchain
 langchain-community
+langchain-text-splitters
 nltk
 seaborn
